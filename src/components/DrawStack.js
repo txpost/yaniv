@@ -1,4 +1,5 @@
 import React from 'react'
+import {getCard} from "../Utils";
 
 function DrawStack(props) {
 
@@ -7,18 +8,19 @@ function DrawStack(props) {
         props.onDrawStackClick();
     }
 
-    let className;
-    if (props.drawStack === undefined || props.drawStack.length === 0) {
-        className="focus:outline-none w-24 h-36 mx-4 rounded-md text-md bg-white border-4 border-gray-200 hover:border-gray-300";
+    let label;
+    if (props.drawStack.length > 0) {
+        label = <label onClick={handleClick} className="card back">*</label>;
     } else {
-        className = "card card-facedown text-md hover:border-gray-300 focus:outline-none";
+        label = <label className="text-md w-16 h-24 mx-4 rounded-md bg-white border-4 border-gray-200 focus:outline-none">
+
+                </label>;
     }
-    className = className.toLowerCase();
 
     return (
-        <div>
-            <div onClick={handleClick} className={className}><span> </span></div>
-        </div>        
+        <div className="playingCards faceImages simpleCards">
+            {label}
+        </div>
     )
 }
 

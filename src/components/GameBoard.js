@@ -5,6 +5,7 @@ import PlayArea from './PlayArea.js'
 import {deal, shuffle, getRandomInt, getBestPlay, getPoints, areCardsPlayable} from '../Utils.js'
 import '../css/cards.css';
 import '../cards.css';
+import PlayingCardLabel from "./PlayingCardLabel";
 
 class GameBoard extends React.Component {
     constructor(props) {
@@ -278,45 +279,46 @@ class GameBoard extends React.Component {
                         paused={this.state.paused}
                     />
                 </div>
-                <div className="playingCards faceImages simpleCards">
-                    <div className="card back">*</div>
-                    <label className="card rank-q hearts">
-                        <div className="rank">Q</div>
-                        <div className="suit">&hearts;</div>
-                    </label>
-                    <label className="card rank-2 clubs">
-                        <div className="rank">2</div>
-                        <div className="suit">&clubs;</div>
-                    </label>
-                    <label className="card rank-3 spades">
-                        <div className="rank">3</div>
-                        <div className="suit">&spades;</div>
-                    </label>
-                    <label className="card rank-10 diams">
-                        <div className="rank">10</div>
-                        <div className="suit">&diams;</div>
-                    </label>
-                    <label className="card joker big">
-                        <div className="rank">+</div>
-                        <div className="suit">Joker</div>
-                    </label>
-                    <label className="card rank-a hearts">
-                        <div className="rank">A</div>
-                        <div className="suit">&hearts;</div>
-                    </label>
-                    <label className="card rank-k clubs">
-                        <div className="rank">K</div>
-                        <div className="suit">&clubs;</div>
-                    </label>
-                    <label className="card rank-j spades">
-                        <div className="rank">J</div>
-                        <div className="suit">&spades;</div>
-                    </label>
-                    <label className="card rank-8 hearts">
-                        <div className="rank">8</div>
-                        <div className="suit">&hearts;</div>
-                    </label>
-                </div>
+
+                {/*<div className="playingCards faceImages simpleCards">*/}
+                    {/*<ul className="hand">*/}
+                    {/*    <li><div className="card back">*</div></li>*/}
+                    {/*    <li><div className="card back">*</div></li>*/}
+                    {/*    <li><div className="card back">*</div></li>*/}
+                    {/*</ul>*/}
+                    {/*<label className="card rank-2 clubs">*/}
+                    {/*    <div className="rank">2</div>*/}
+                    {/*    <div className="suit">&clubs;</div>*/}
+                    {/*</label>*/}
+                    {/*<label className="card rank-3 spades">*/}
+                    {/*    <div className="rank">3</div>*/}
+                    {/*    <div className="suit">&spades;</div>*/}
+                    {/*</label>*/}
+                    {/*<label className="card rank-10 diams">*/}
+                    {/*    <div className="rank">10</div>*/}
+                    {/*    <div className="suit">&diams;</div>*/}
+                    {/*</label>*/}
+                    {/*<label className="card joker big">*/}
+                    {/*    <div className="rank">+</div>*/}
+                    {/*    <div className="suit">Joker</div>*/}
+                    {/*</label>*/}
+                    {/*<label className="card rank-a hearts">*/}
+                    {/*    <div className="rank">A</div>*/}
+                    {/*    <div className="suit">&hearts;</div>*/}
+                    {/*</label>*/}
+                    {/*<label className="card rank-k clubs">*/}
+                    {/*    <div className="rank">K</div>*/}
+                    {/*    <div className="suit">&clubs;</div>*/}
+                    {/*</label>*/}
+                    {/*<label className="card rank-j spades">*/}
+                    {/*    <div className="rank">J</div>*/}
+                    {/*    <div className="suit">&spades;</div>*/}
+                    {/*</label>*/}
+                    {/*<label className="card rank-8 hearts">*/}
+                    {/*    <div className="rank">8</div>*/}
+                    {/*    <div className="suit">&hearts;</div>*/}
+                    {/*</label>*/}
+                {/*</div>*/}
             </div>
         )
     }

@@ -10,7 +10,7 @@ function OpponentRow(props) {
     }
     
     return (
-        <div className="px-4">
+        <div className="px-8">
             <div className="flex items-center justify-center p-3">
                 {props.paused &&
                     <span className="text-red-500 px-2 font-bold">{props.player.points}</span>
@@ -28,8 +28,10 @@ function OpponentRow(props) {
                     <div className="pl-2"><ScoreDisplay score={props.player.score} /></div>
                 }
             </div>
-            <div className="flex flex-wrap items-center justify-center">
-                {opponentRow}
+            <div className="flex flex-wrap items-center playingCards faceImages simpleCards">
+                <ul className="hand">
+                    {opponentRow}
+                </ul>
             </div>                        
         </div>
     )

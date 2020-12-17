@@ -497,12 +497,12 @@
 .playingCards ul.deck {
     list-style-type: none;
     padding: 0;
-    margin: 0 0 1.5em 0;
+    /*margin: 0 0 1.5em 0;*/
     position: relative;
     clear: both;
 }
 .playingCards ul.hand {
-    margin-bottom: 3.5em;
+    /*margin-bottom: 3.5em;*/
 }
 .playingCards ul.table li,
 .playingCards ul.hand li,
@@ -515,7 +515,7 @@
 
 .playingCards ul.hand,
 .playingCards ul.deck {
-    height: 8em;
+    height: 7em;
 }
 .playingCards ul.hand li,
 .playingCards ul.deck li {
