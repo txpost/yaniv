@@ -312,6 +312,10 @@ class GameBoard extends React.Component {
                         <div className="rank">J</div>
                         <div className="suit">&spades;</div>
                     </label>
+                    <label className="card rank-8 hearts">
+                        <div className="rank">8</div>
+                        <div className="suit">&hearts;</div>
+                    </label>
                 </div>
             </div>
         )

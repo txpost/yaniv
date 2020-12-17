@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e167294-f45f-4d4b-b6c3-a8d24f71d8de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cards.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/faces/JC.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/faces/JD.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/faces/JH.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/faces/JS.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/faces/KC.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/faces/KD.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/faces/KH.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/faces/KS.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/faces/QC.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/faces/QD.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/faces/QH.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/faces/QS.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/faces/joker.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GameBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameBoard.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +76,7 @@
       <workItem from="1607914339165" duration="9880000" />
       <workItem from="1607978691669" duration="38942000" />
       <workItem from="1608126245893" duration="29233000" />
-      <workItem from="1608213497278" duration="9854000" />
+      <workItem from="1608213497278" duration="11079000" />
     </task>
     <task id="LOCAL-00001" summary="Long time no commit, most recent updates are css playing cards and opponent ai">
       <created>1608214860835</created>
@@ -106,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608217044160</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Setup new css playing cards">
+      <created>1608223657613</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608223657613</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +120,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Long time no commit, most recent updates are css playing cards and opponent ai" />
     <MESSAGE value="Initialized github repo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initialized github repo" />
+    <MESSAGE value="Setup new css playing cards" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup new css playing cards" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
