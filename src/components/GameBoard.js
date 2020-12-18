@@ -124,6 +124,8 @@ class GameBoard extends React.Component {
         let newPlayer = this.state.players[playerIndex];
         newPlayer.hand.splice(newPlayer.hand.indexOf(card), 1);
 
+        newPlayer.points = getPoints(newPlayer.hand);
+
         let newPlayers = this.state.players;
         newPlayers[playerIndex] = newPlayer;
 
@@ -172,6 +174,8 @@ class GameBoard extends React.Component {
                 newPlayer.hand.splice(newPlayer.hand.indexOf(cards[i]), 1);
             }
         }
+
+        newPlayer.points = getPoints(newPlayer.hand);
 
         let newPlayers = this.state.players;
         newPlayers[playerIndex] = newPlayer;
