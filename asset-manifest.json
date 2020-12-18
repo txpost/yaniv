@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/yaniv/static/css/main.92a7d6e7.chunk.css",
-    "main.js": "/yaniv/static/js/main.3cf81c3e.chunk.js",
-    "main.js.map": "/yaniv/static/js/main.3cf81c3e.chunk.js.map",
+    "main.js": "/yaniv/static/js/main.d7d2e913.chunk.js",
+    "main.js.map": "/yaniv/static/js/main.d7d2e913.chunk.js.map",
     "runtime-main.js": "/yaniv/static/js/runtime-main.a1677fb8.js",
     "runtime-main.js.map": "/yaniv/static/js/runtime-main.a1677fb8.js.map",
     "static/js/2.890f2da3.chunk.js": "/yaniv/static/js/2.890f2da3.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.a1677fb8.js",
     "static/js/2.890f2da3.chunk.js",
     "static/css/main.92a7d6e7.chunk.css",
-    "static/js/main.3cf81c3e.chunk.js"
+    "static/js/main.d7d2e913.chunk.js"
   ]
 }
