@@ -2,7 +2,7 @@ import React from 'react'
 import OpponentList from './OpponentList.js'
 import PlayerInput from './PlayerInput.js'
 import PlayArea from './PlayArea.js'
-import {deal, shuffle, getRandomInt, getBestPlay, getPoints, areCardsPlayable, getCards} from '../Utils.js'
+import {deal, shuffle, getRandomInt, getBestPlay, getPoints, areCardsPlayable, getCard} from '../Utils.js'
 import '../css/cards.css';
 import '../cards.css';
 
@@ -31,7 +31,7 @@ class GameBoard extends React.Component {
 
     startInterval() {
         this.clearInterval();
-        this.interval = setInterval(() => this.handleTimeout(), 1000);
+        this.interval = setInterval(() => this.handleTimeout(), 1500);
     }
 
     clearInterval() {
@@ -51,6 +51,7 @@ class GameBoard extends React.Component {
         if (this.state.discardPile.length === 0) {
             return;
         }
+
         this.handlePlayClick(this.state.selectedCards, 0);
     }
 
@@ -98,9 +99,45 @@ class GameBoard extends React.Component {
         this.startInterval();
     }
 
-    handleCardClick(cards) {
+    handleCardClick(cards, card) {
+        // slap down if clicked card matches discard pile top card
+        if (this.state.discardPile.length > 0) {
+            let topCard = this.state.discardPile[this.state.discardPile.length - 1];
+            if (getCard(topCard).number === getCard(card).number && this.state.turn !== this.state.players[0].turn) {
+                this.slapDownCard(card, this.state.players[0]);
+                console.log('slap down');
+                return;
+            }
+        }
+
         // console.log('selectedCards: ' + cards);
         this.setState({selectedCards: cards})
+    }
+
+    slapDownCard(card, player) {
+        // add card to the discard pile
+        let newDiscardPile = this.state.discardPile;
+        newDiscardPile.push(card);
+
+        // remove cards from the player's hand
+        let playerIndex = this.state.players.indexOf(player);
+        let newPlayer = this.state.players[playerIndex];
+        newPlayer.hand.splice(newPlayer.hand.indexOf(card), 1);
+
+        let newPlayers = this.state.players;
+        newPlayers[playerIndex] = newPlayer;
+
+        let newSelectedCards = this.state.selectedCards;
+        if (newSelectedCards.includes(card)) {
+            newSelectedCards.splice(newSelectedCards.indexOf(card), 1);
+        }
+
+        this.setState({
+            discardPile: newDiscardPile,
+            players: newPlayers,
+            errorMessage: "",
+            selectedCards: newSelectedCards
+        })
     }
 
     playCards(cards, player) {
@@ -116,15 +153,15 @@ class GameBoard extends React.Component {
                     break;
                 }
             }
-            let convertedCards = getCards(newCards);
-            console.log(convertedCards);
+            // let convertedCards = getCards(newCards);
+            // console.log(convertedCards);
         }
 
         let newDiscardPile = this.state.discardPile;
         newDiscardPile = newDiscardPile.concat(newCards);
-        if (newCards.length > 1) {
-            console.log(getCards(newDiscardPile));
-        }
+        // if (newCards.length > 1) {
+        //     console.log(getCards(newDiscardPile));
+        // }
 
         // remove cards from the player's hand
         let playerIndex = this.state.players.indexOf(player);
@@ -135,8 +172,6 @@ class GameBoard extends React.Component {
                 newPlayer.hand.splice(newPlayer.hand.indexOf(cards[i]), 1);
             }
         }
-
-        newPlayer.points = getPoints(newPlayer.hand);
 
         let newPlayers = this.state.players;
         newPlayers[playerIndex] = newPlayer;
@@ -233,6 +268,13 @@ class GameBoard extends React.Component {
             newPlayers[i] = opponent;
         }
 
+        // cut score in half if player reaches exactly 100 or 200
+        for (let i = 0; i < newPlayers.length; i++) {
+            if (newPlayers[i].score === 100 || newPlayers[i].score === 200) {
+                newPlayers[i].score = newPlayers[i].score / 2;
+            }
+        }
+
         this.setState({
             players: newPlayers,
             paused: true
@@ -289,7 +331,7 @@ class GameBoard extends React.Component {
                         player={this.state.players[0]}
                         errorMessage={this.state.errorMessage}
                         turn={this.state.turn}
-                        onCardClick={(cards) => this.handleCardClick(cards)}
+                        onCardClick={(cards, card) => this.handleCardClick(cards, card)}
                         onYanivClick={() => this.handleYanivClick()}
                         onReadyClick={() => this.handleReadyClick()}
                         selectedCards={this.state.selectedCards}

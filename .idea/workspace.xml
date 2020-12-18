@@ -4,8 +4,10 @@
     <list default="true" id="5e167294-f45f-4d4b-b6c3-a8d24f71d8de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GameBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PlayerInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayerInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PlayerRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayerRow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PlayingCardLabel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayingCardLabel.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +85,7 @@
       <workItem from="1608213497278" duration="12569000" />
       <workItem from="1608230542008" duration="326000" />
       <workItem from="1608230891461" duration="31754000" />
-      <workItem from="1608300590825" duration="2837000" />
+      <workItem from="1608300590825" duration="6747000" />
     </task>
     <task id="LOCAL-00001" summary="Long time no commit, most recent updates are css playing cards and opponent ai">
       <created>1608214860835</created>
@@ -155,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608265531307</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Make sure highest cards go on top of discard pile">
+      <created>1608304434568</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1608304434568</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +193,8 @@
     <MESSAGE value="Allow for red and black joker" />
     <MESSAGE value="ai pickup from discard pile if top card value is less than 4" />
     <MESSAGE value="ai accounts for picking up from discard pile to complete sets and runs" />
-    <option name="LAST_COMMIT_MESSAGE" value="ai accounts for picking up from discard pile to complete sets and runs" />
+    <MESSAGE value="Make sure highest cards go on top of discard pile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make sure highest cards go on top of discard pile" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

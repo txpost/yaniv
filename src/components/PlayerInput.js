@@ -19,7 +19,7 @@ class PlayerInput extends React.Component {
         } else {
             newSelectedCards.push(card);
         }
-        this.props.onCardClick(newSelectedCards);
+        this.props.onCardClick(newSelectedCards, card);
     }
 
     handleYanivClick() {
@@ -36,7 +36,7 @@ class PlayerInput extends React.Component {
         return (
             <div className="flex flex-col">
                 <div className="flex items-center justify-center">
-                    <PlayerRow selectedCards={this.props.selectedCards} paused={this.props.paused} player={this.props.player} onCardClick={this.handleCardClick} />
+                    <PlayerRow selectedCards={this.props.selectedCards} paused={this.props.paused} player={this.props.player} onCardClick={(card) => this.handleCardClick(card)} />
                 </div>
                 <div className="flex items-center justify-center pt-6">
                     <span className="text-red-500 pr-2 font-bold">{this.props.player.points}</span>

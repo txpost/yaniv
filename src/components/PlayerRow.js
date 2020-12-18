@@ -11,7 +11,7 @@ function PlayerRow(props) {
 
     for(let card of props.player.hand) {
         // playerRow.push(<PlayerCardButton paused={props.paused} key={card} card={card} onCardClick={() => handleCardClick(card)} />);
-        playerRow.push(<PlayerCardLabel paused={props.paused} key={card} card={card} onCardClick={() => handleCardClick(card)} />);
+        playerRow.push(<PlayerCardLabel paused={props.paused} key={card} card={card} onCardClick={(card) => handleCardClick(card)} />);
     }
     
     return (

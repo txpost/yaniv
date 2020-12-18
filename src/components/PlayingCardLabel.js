@@ -9,11 +9,11 @@ class PlayingCardLabel extends React.Component{
         }
     }
 
-    handleCardClick(card) {
+    handleCardClick() {
         if (this.props.paused) {return;}
         let isSelected = !this.state.selected;
         this.setState({selected: isSelected});
-        this.props.onCardClick(card);
+        this.props.onCardClick(this.props.card);
     }
 
     render() {
