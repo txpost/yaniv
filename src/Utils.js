@@ -176,15 +176,12 @@ export const getBestPlay = (hand, discardPile, playStyle) => {
 
         let leftovers = hand.filter((a) => bestHand.indexOf(a) < 0);
         leftovers = leftovers.push(topCard);
-        console.log(getCards(leftovers));
 
         // take from discard pile if leftovers make up a set or a run, or if top card is less than 4
         let bestLeftoversSet = getBestSet(leftovers, matrix);
         let bestLeftoversRun = getBestRun(leftovers);
-        let bestLeftoversSetPoints = getPoints(bestLeftoversSet);
-        let bestLeftoversRunPoints = getPoints(bestLeftoversRun);
-        console.log(getCards(bestLeftoversSet));
-        console.log(getCards(bestLeftoversRun));
+        // console.log(getCards(bestLeftoversSet));
+        // console.log(getCards(bestLeftoversRun));
         // console.log('bestLeftoversSet: ' + getCards(bestLeftoversSet) + ', bestLeftoversRun: ' + getCards(bestLeftoversRun));
         if (bestLeftoversSet.length >= 2 && bestLeftoversSet.includes(topCard)) {
             console.log('set lengths match: ' + bestLeftoversSet.length);

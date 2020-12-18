@@ -2,7 +2,7 @@ import React from 'react'
 import OpponentList from './OpponentList.js'
 import PlayerInput from './PlayerInput.js'
 import PlayArea from './PlayArea.js'
-import {deal, shuffle, getRandomInt, getBestPlay, getPoints, areCardsPlayable} from '../Utils.js'
+import {deal, shuffle, getRandomInt, getBestPlay, getPoints, areCardsPlayable, getCards} from '../Utils.js'
 import '../css/cards.css';
 import '../cards.css';
 
@@ -99,14 +99,32 @@ class GameBoard extends React.Component {
     }
 
     handleCardClick(cards) {
-        console.log('selectedCards: ' + cards);
+        // console.log('selectedCards: ' + cards);
         this.setState({selectedCards: cards})
     }
 
     playCards(cards, player) {
         // add cards to the discard pile
+        let newCards = cards;
+        if (cards.length > 1) {
+            // let mappedCards = cards.map((a, b) => getPoints([a]) - getPoints([b]));
+            // console.log(mappedCards);
+            let maxValue = Math.max.apply(Math, cards.map((a) => getPoints([a])));
+            for (let i = 0; i < newCards.length; i++) {
+                if (getPoints([newCards[i]]) === maxValue) {
+                    newCards.push(newCards.splice(i, 1)[0]);
+                    break;
+                }
+            }
+            let convertedCards = getCards(newCards);
+            console.log(convertedCards);
+        }
+
         let newDiscardPile = this.state.discardPile;
-        newDiscardPile = newDiscardPile.concat(cards);
+        newDiscardPile = newDiscardPile.concat(newCards);
+        if (newCards.length > 1) {
+            console.log(getCards(newDiscardPile));
+        }
 
         // remove cards from the player's hand
         let playerIndex = this.state.players.indexOf(player);
