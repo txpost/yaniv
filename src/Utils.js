@@ -146,7 +146,7 @@ export const getBestPlay = (hand, discardPile, playStyle) => {
             break;
     }
 
-    // play best run or best set (whichever seems better), pickup from draw stack
+    // play best run or best set (whichever seems better), pickup from discard pile if lower than 4
     let bestHand;
     let bestSet = getBestSet(hand, matrix);
     let bestRun = getBestRun(hand);
@@ -159,14 +159,24 @@ export const getBestPlay = (hand, discardPile, playStyle) => {
         bestHand = bestRun;
     }
 
-    console.log('bestSet: ' + bestSet + ' = ' + bestSetPoints + ' | ' +
-        'bestRun: ' + bestRun + ' = ' + bestRunPoints + ' | ' +
-        'bestPlay: '  + bestHand + ' = ' + getPoints(bestHand));
-    console.log('--------------------')
+    let drawPile = 2;
+    if (discardPile.length > 0) {
+        let topCard = discardPile[discardPile.length - 1];
+        topCard = getCard(topCard);
+        let topCardValue = numberToValueMap[topCard.number];
+        if (topCardValue < 4) {
+            drawPile = 1;
+        }
+    }
+
+    // console.log('bestSet: ' + bestSet + ' = ' + bestSetPoints + ' | ' +
+    //     'bestRun: ' + bestRun + ' = ' + bestRunPoints + ' | ' +
+    //     'bestPlay: '  + bestHand + ' = ' + getPoints(bestHand));
+    // console.log('--------------------')
 
     bestPlay = {
         cards: bestHand,
-        drawPile: 2
+        drawPile: drawPile
     }
 
     return bestPlay;

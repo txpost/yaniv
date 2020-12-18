@@ -4,9 +4,7 @@
     <list default="true" id="5e167294-f45f-4d4b-b6c3-a8d24f71d8de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DiscardPile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiscardPile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PlayingCardLabel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayingCardLabel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +81,7 @@
       <workItem from="1608126245893" duration="29233000" />
       <workItem from="1608213497278" duration="12569000" />
       <workItem from="1608230542008" duration="326000" />
-      <workItem from="1608230891461" duration="25268000" />
+      <workItem from="1608230891461" duration="26892000" />
     </task>
     <task id="LOCAL-00001" summary="Long time no commit, most recent updates are css playing cards and opponent ai">
       <created>1608214860835</created>
@@ -134,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608258040826</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Allow for red and black joker">
+      <created>1608259916309</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1608259916309</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +165,8 @@
     <MESSAGE value="Implement card front and backs for new css cards" />
     <MESSAGE value="New cards are in with new backside style" />
     <MESSAGE value="Changed the score text and a couple other things, edited readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed the score text and a couple other things, edited readme" />
+    <MESSAGE value="Allow for red and black joker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Allow for red and black joker" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
