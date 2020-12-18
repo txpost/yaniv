@@ -5,12 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OpponentRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OpponentRow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PlayArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayArea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PlayerInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayerInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ScoreDisplay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ScoreDisplay.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DiscardPile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiscardPile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PlayingCardLabel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayingCardLabel.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +83,7 @@
       <workItem from="1608126245893" duration="29233000" />
       <workItem from="1608213497278" duration="12569000" />
       <workItem from="1608230542008" duration="326000" />
-      <workItem from="1608230891461" duration="23459000" />
+      <workItem from="1608230891461" duration="25268000" />
     </task>
     <task id="LOCAL-00001" summary="Long time no commit, most recent updates are css playing cards and opponent ai">
       <created>1608214860835</created>
@@ -131,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608252426703</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Changed the score text and a couple other things, edited readme">
+      <created>1608258040826</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608258040826</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,7 +159,8 @@
     <MESSAGE value="Remove extra symbol from face cards" />
     <MESSAGE value="Implement card front and backs for new css cards" />
     <MESSAGE value="New cards are in with new backside style" />
-    <option name="LAST_COMMIT_MESSAGE" value="New cards are in with new backside style" />
+    <MESSAGE value="Changed the score text and a couple other things, edited readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed the score text and a couple other things, edited readme" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

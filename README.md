@@ -1,4 +1,4 @@
-your favourite card game
+your favourite card game, made with react.js
 
 where to play: https://txpost.github.io/yaniv/
 

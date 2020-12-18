@@ -19,6 +19,11 @@ function DiscardPile (props) {
         let suitMap = {H: 'hearts', D: 'diams', C: 'clubs', S: 'spades', J: 'joker'};
         mappedSuit = suitMap[card.suit];
         className = "selectable cursor-pointer card rank-" + card.number + " " + mappedSuit;
+        if (props.discardPile[props.discardPile.length - 1] === 52) {
+            className += " little";
+        } else if (props.discardPile[props.discardPile.length - 1] === 53) {
+            className += " big";
+        }
         className = className.toLowerCase();
         switch (card.suit) {
             case 'H':

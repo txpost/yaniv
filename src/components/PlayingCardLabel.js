@@ -23,6 +23,11 @@ class PlayingCardLabel extends React.Component{
         let suitMap = {H: 'hearts', D: 'diams', C: 'clubs', S: 'spades', J: 'joker'};
         let mappedSuit = suitMap[card.suit];
         let className = "selectable cursor-pointer card rank-" + card.number + " " + mappedSuit;
+        if (this.props.card === 52) {
+            className += " little";
+        } else if (this.props.card === 53) {
+            className += " big";
+        }
         className = className.toLowerCase();
         let suitDiv;
         switch (card.suit) {
