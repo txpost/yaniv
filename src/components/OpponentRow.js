@@ -14,16 +14,11 @@ function OpponentRow(props) {
             <div className="flex items-center justify-center p-3">
                 {props.turn === props.player.turn
                     ?
-                    <div className="bg-green-400"><IdDisplay id={props.player.id}/></div>
+                    <div className="bg-yellow-300"><IdDisplay id={props.player.id}/></div>
                     :
                     <div className=""><IdDisplay id={props.player.id}/></div>
                 }
-                {props.turn === props.player.turn
-                    ?
-                    <div className="bg-green-400 pl-2"><ScoreDisplay score={props.player.score} /></div>
-                    :
-                    <div className="pl-2"><ScoreDisplay score={props.player.score} /></div>
-                }
+                <div className="pl-2"><ScoreDisplay score={props.player.score} /></div>
             </div>
             <div className="flex flex-wrap items-center playingCards faceImages simpleCards">
                 <ul className="hand">
@@ -31,7 +26,7 @@ function OpponentRow(props) {
                 </ul>
             </div>
             {props.paused &&
-                <div className="text-red-500 px-2 font-bold">{props.player.points}</div>
+                <div className="text-red-500 pt-2 px-2 font-bold">{props.player.points}</div>
             }
         </div>
     )

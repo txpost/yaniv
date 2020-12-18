@@ -2,8 +2,8 @@ import React from 'react'
 
 function ScoreDisplay(props) {
     return (
-        <div>
-            ({props.score})
+        <div className="text-green-600 font-bold">
+            {props.score}
         </div>
     )
 }

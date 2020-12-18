@@ -15,7 +15,7 @@ function PlayArea(props) {
     return (
         <div>
             <div className="flex justify-center align-center items-center">
-                <div className="pr-3">Discard Pile ({props.discardPile.length})</div>
+                {/*<div className="pr-3">Discard Pile ({props.discardPile.length})</div>*/}
                 <DiscardPile
                     onDiscardPileClick={handleDiscardPileClick}
                     discardPile={props.discardPile}
@@ -26,7 +26,7 @@ function PlayArea(props) {
                     drawStack={props.drawStack}
                     paused={props.paused}
                 />
-                <div className="pl-3" >Draw Stack ({props.drawStack.length})</div>
+                {/*<div className="pl-3" >Draw Stack ({props.drawStack.length})</div>*/}
             </div>
         </div>
     )

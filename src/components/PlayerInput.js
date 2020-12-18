@@ -39,18 +39,13 @@ class PlayerInput extends React.Component {
                     <PlayerRow selectedCards={this.props.selectedCards} paused={this.props.paused} player={this.props.player} onCardClick={this.handleCardClick} />
                 </div>
                 <div className="flex items-center justify-center pt-6">
-                    <span className="text-red-500 px-2 font-bold">{this.props.player.points}</span>
+                    <span className="text-red-500 pr-2 font-bold">{this.props.player.points}</span>
+                    <span className="pr-2"><ScoreDisplay score={this.props.player.score} /></span>
                     {this.props.turn === this.props.player.turn
                         ?
-                        <div className="bg-green-400"><IdDisplay id={this.props.player.id}/></div>
+                        <div className="bg-yellow-300"><IdDisplay id={this.props.player.id}/></div>
                         :
                         <div className=""><IdDisplay id={this.props.player.id}/></div>
-                    }
-                    {this.props.turn === this.props.player.turn
-                        ?
-                        <div className="bg-green-400 pl-2"><ScoreDisplay score={this.props.player.score} /></div>
-                        :
-                        <div className="pl-2"><ScoreDisplay score={this.props.player.score} /></div>
                     }
                     {points <= 5 && !this.props.paused &&
                         <div onClick={() => this.handleYanivClick()} className="pl-4"><YanivButton /></div>
