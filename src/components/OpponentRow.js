@@ -12,9 +12,6 @@ function OpponentRow(props) {
     return (
         <div className="px-8">
             <div className="flex items-center justify-center p-3">
-                {props.paused &&
-                    <span className="text-red-500 px-2 font-bold">{props.player.points}</span>
-                }
                 {props.turn === props.player.turn
                     ?
                     <div className="bg-green-400"><IdDisplay id={props.player.id}/></div>
@@ -32,7 +29,10 @@ function OpponentRow(props) {
                 <ul className="hand">
                     {opponentRow}
                 </ul>
-            </div>                        
+            </div>
+            {props.paused &&
+                <div className="text-red-500 px-2 font-bold">{props.player.points}</div>
+            }
         </div>
     )
 }

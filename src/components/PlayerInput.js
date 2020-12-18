@@ -36,7 +36,7 @@ class PlayerInput extends React.Component {
         return (
             <div className="flex flex-col">
                 <div className="flex items-center justify-center">
-                    <PlayerRow paused={this.props.paused} player={this.props.player} onCardClick={this.handleCardClick} />
+                    <PlayerRow selectedCards={this.props.selectedCards} paused={this.props.paused} player={this.props.player} onCardClick={this.handleCardClick} />
                 </div>
                 <div className="flex items-center justify-center pt-6">
                     <span className="text-red-500 px-2 font-bold">{this.props.player.points}</span>

@@ -1,47 +1,74 @@
 import React from 'react';
 import {getCard} from "../Utils";
 
-function PlayingCardLabel(props) {
-    const card = getCard(props.card);
-    // const selected = props.selected;
-
-    let suitMap = {H: 'hearts', D: 'diams', C: 'clubs', S: 'spades', J: 'joker'};
-    let mappedSuit = suitMap[card.suit];
-    let className = "card rank-" + card.number + " " + mappedSuit;
-    className = className.toLowerCase();
-    let suitDiv;
-    switch (card.suit) {
-        case 'H':
-            suitDiv = <div className="suit">&hearts;</div>;
-            break;
-        case 'D':
-            suitDiv = <div className="suit">&diams;</div>;
-            break;
-        case 'C':
-            suitDiv = <div className="suit">&clubs;</div>;
-            break;
-        case 'S':
-            suitDiv = <div className="suit">&spades;</div>;
-            break;
-        case 'J':
-            suitDiv = <div className="suit">Joker</div>;
-            break;
-        default:
-            break;
+class PlayingCardLabel extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            selected: false
+        }
     }
 
-    // if (selected) {
-    //     className += " hover:border-gray-300 focus:outline-none text-lg";
-    // } else {
-    //     className += " hover:border-gray-300 focus:outline-none";
-    // }
+    handleCardClick(card) {
+        if (this.props.paused) {return;}
+        let isSelected = !this.state.selected;
+        this.setState({selected: isSelected});
+        this.props.onCardClick(card);
+    }
 
-    return (
-        <label className={className}>
-            <div className="rank">{card.number}</div>
-            {suitDiv}
-        </label>
-    );
+    render() {
+        const card = getCard(this.props.card);
+        const selected = this.state.selected;
+
+        let suitMap = {H: 'hearts', D: 'diams', C: 'clubs', S: 'spades', J: 'joker'};
+        let mappedSuit = suitMap[card.suit];
+        let className = "selectable cursor-pointer card rank-" + card.number + " " + mappedSuit;
+        className = className.toLowerCase();
+        let suitDiv;
+        switch (card.suit) {
+            case 'H':
+                suitDiv = <div className="suit">&hearts;</div>;
+                break;
+            case 'D':
+                suitDiv = <div className="suit">&diams;</div>;
+                break;
+            case 'C':
+                suitDiv = <div className="suit">&clubs;</div>;
+                break;
+            case 'S':
+                suitDiv = <div className="suit">&spades;</div>;
+                break;
+            case 'J':
+                suitDiv = <div className="suit">Joker</div>;
+                break;
+            default:
+                break;
+        }
+
+        let render;
+        if (selected) {
+            // className += " selected";
+            render =
+                <strong>
+                    <label onClick={() => this.handleCardClick()} className={className}>
+                        <div className="rank">{card.number}</div>
+                        {suitDiv}
+                    </label>
+                </strong>
+        } else {
+            render =
+                <div onClick={() => this.handleCardClick()} className={className}>
+                    <div className="rank">{card.number}</div>
+                    {suitDiv}
+                </div>
+        }
+
+        return (
+            <div className="playingCards faceImages simpleCards">
+                {render}
+            </div>
+        );
+    }
 }
 
 export default PlayingCardLabel;

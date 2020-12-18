@@ -16,9 +16,7 @@ function PlayerRow(props) {
     
     return (
         <div className="flex flex-wrap items-center justify-center" >
-            <div className="playingCards faceImages simpleCards">
-                {playerRow}
-            </div>
+            {playerRow}
         </div>
     )
 }

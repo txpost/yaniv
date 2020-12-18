@@ -16,9 +16,9 @@ function DiscardPile (props) {
     if (props.discardPile.length > 0) {
         card = getCard(props.discardPile[props.discardPile.length - 1]);
 
-        let suitMap = {H: 'hearts', D: 'diamonds', C: 'clubs', S: 'spades', J: 'joker'};
+        let suitMap = {H: 'hearts', D: 'diams', C: 'clubs', S: 'spades', J: 'joker'};
         mappedSuit = suitMap[card.suit];
-        className = "card rank-" + card.number + " " + mappedSuit;
+        className = "selectable cursor-pointer card rank-" + card.number + " " + mappedSuit;
         className = className.toLowerCase();
         switch (card.suit) {
             case 'H':
@@ -39,13 +39,13 @@ function DiscardPile (props) {
             default:
                 break;
         }
-        label = <label onClick={handleClick} className={className}>
+        label = <div onClick={handleClick} className={className}>
                     <div className="rank">{card.number}</div>
                     {suitDiv}
-                </label>
+                </div>
     } else {
-        label = <div className="text-md w-16 h-24 mx-4 rounded-md bg-white border-4 border-gray-200 focus:outline-none">
-
+        label = <div className="flex items-center justify-center text-sm w-16 h-20 mx-3 rounded-md bg-white border-4 border-gray-200 focus:outline-none">
+                    discard pile
                 </div>
     }
 

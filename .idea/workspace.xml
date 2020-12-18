@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e167294-f45f-4d4b-b6c3-a8d24f71d8de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/PlayingCardLabel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DiscardPile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiscardPile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DrawStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DrawStack.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GameBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameBoard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/OpponentCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OpponentCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/OpponentRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OpponentRow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PlayerInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayerInput.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PlayerRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayerRow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PlayingCardLabel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayingCardLabel.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +89,7 @@
       <workItem from="1608126245893" duration="29233000" />
       <workItem from="1608213497278" duration="12569000" />
       <workItem from="1608230542008" duration="326000" />
-      <workItem from="1608230891461" duration="6401000" />
+      <workItem from="1608230891461" duration="18697000" />
     </task>
     <task id="LOCAL-00001" summary="Long time no commit, most recent updates are css playing cards and opponent ai">
       <created>1608214860835</created>
@@ -121,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608224885116</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Implement card front and backs for new css cards">
+      <created>1608238293635</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1608238293635</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,7 +149,8 @@
     <MESSAGE value="Initialized github repo" />
     <MESSAGE value="Setup new css playing cards" />
     <MESSAGE value="Remove extra symbol from face cards" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove extra symbol from face cards" />
+    <MESSAGE value="Implement card front and backs for new css cards" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement card front and backs for new css cards" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
