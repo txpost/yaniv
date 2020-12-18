@@ -5,6 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GameBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OpponentRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OpponentRow.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +83,7 @@
       <workItem from="1608126245893" duration="29233000" />
       <workItem from="1608213497278" duration="12569000" />
       <workItem from="1608230542008" duration="326000" />
-      <workItem from="1608230891461" duration="26892000" />
+      <workItem from="1608230891461" duration="30870000" />
     </task>
     <task id="LOCAL-00001" summary="Long time no commit, most recent updates are css playing cards and opponent ai">
       <created>1608214860835</created>
@@ -139,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608259916309</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ai pickup from discard pile if top card value is less than 4">
+      <created>1608261500842</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1608261500842</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,7 +175,8 @@
     <MESSAGE value="New cards are in with new backside style" />
     <MESSAGE value="Changed the score text and a couple other things, edited readme" />
     <MESSAGE value="Allow for red and black joker" />
-    <option name="LAST_COMMIT_MESSAGE" value="Allow for red and black joker" />
+    <MESSAGE value="ai pickup from discard pile if top card value is less than 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="ai pickup from discard pile if top card value is less than 4" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

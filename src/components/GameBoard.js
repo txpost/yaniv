@@ -31,7 +31,7 @@ class GameBoard extends React.Component {
 
     startInterval() {
         this.clearInterval();
-        this.interval = setInterval(() => this.handleTimeout(), 500);
+        this.interval = setInterval(() => this.handleTimeout(), 1000);
     }
 
     clearInterval() {

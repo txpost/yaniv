@@ -40,6 +40,14 @@ export const getCard = (cardNumber) => {
     return {number: number, suit: suit}
 }
 
+export const getCards = (cards) => {
+    let newCards = [];
+    for (let i = 0; i < cards.length; i++) {
+        newCards.push(getCard(cards[i]));
+    }
+    return newCards;
+}
+
 export const shuffle = (array) => {
     let currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -159,12 +167,33 @@ export const getBestPlay = (hand, discardPile, playStyle) => {
         bestHand = bestRun;
     }
 
+    // determine drawPile
     let drawPile = 2;
     if (discardPile.length > 0) {
         let topCard = discardPile[discardPile.length - 1];
-        topCard = getCard(topCard);
-        let topCardValue = numberToValueMap[topCard.number];
-        if (topCardValue < 4) {
+        let topCardConverted = getCard(topCard);
+        let topCardValue = numberToValueMap[topCardConverted.number];
+
+        let leftovers = hand.filter((a) => bestHand.indexOf(a) < 0);
+        leftovers = leftovers.push(topCard);
+        console.log(getCards(leftovers));
+
+        // take from discard pile if leftovers make up a set or a run, or if top card is less than 4
+        let bestLeftoversSet = getBestSet(leftovers, matrix);
+        let bestLeftoversRun = getBestRun(leftovers);
+        let bestLeftoversSetPoints = getPoints(bestLeftoversSet);
+        let bestLeftoversRunPoints = getPoints(bestLeftoversRun);
+        console.log(getCards(bestLeftoversSet));
+        console.log(getCards(bestLeftoversRun));
+        // console.log('bestLeftoversSet: ' + getCards(bestLeftoversSet) + ', bestLeftoversRun: ' + getCards(bestLeftoversRun));
+        if (bestLeftoversSet.length >= 2 && bestLeftoversSet.includes(topCard)) {
+            console.log('set lengths match: ' + bestLeftoversSet.length);
+            drawPile = 1;
+        } else if (bestLeftoversRun.length >= 3 && bestLeftoversSet.includes(topCard)) {
+            console.log('run lengths match: ' + bestLeftoversRun.length);
+            drawPile = 1;
+        } else if (topCardValue < 4) {
+            console.log('topCardValue match: ' + topCardValue);
             drawPile = 1;
         }
     }
