@@ -10,6 +10,13 @@
 /* card itself
 ********************************************************************/
 
+body:after {
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1; /* hide images */
+    content:url(faces/JD.gif) url(faces/JH.gif) url(faces/JS.gif) url(faces/JC.gif)
+            url(faces/QD.gif) url(faces/QH.gif) url(faces/QS.gif) url(faces/QC.gif)
+            url(faces/KD.gif) url(faces/KH.gif) url(faces/KS.gif) url(faces/KC.gif);   /* load images */
+}
+
 .playingCards .card {
     display: inline-block;
     width: 3.3em;
