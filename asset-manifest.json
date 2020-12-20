@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/yaniv/static/css/main.1816ba23.chunk.css",
-    "main.js": "/yaniv/static/js/main.22ad3751.chunk.js",
-    "main.js.map": "/yaniv/static/js/main.22ad3751.chunk.js.map",
+    "main.css": "/yaniv/static/css/main.c0a341fd.chunk.css",
+    "main.js": "/yaniv/static/js/main.1b1b1a65.chunk.js",
+    "main.js.map": "/yaniv/static/js/main.1b1b1a65.chunk.js.map",
     "runtime-main.js": "/yaniv/static/js/runtime-main.a1677fb8.js",
     "runtime-main.js.map": "/yaniv/static/js/runtime-main.a1677fb8.js.map",
     "static/js/2.890f2da3.chunk.js": "/yaniv/static/js/2.890f2da3.chunk.js",
     "static/js/2.890f2da3.chunk.js.map": "/yaniv/static/js/2.890f2da3.chunk.js.map",
     "index.html": "/yaniv/index.html",
-    "static/css/main.1816ba23.chunk.css.map": "/yaniv/static/css/main.1816ba23.chunk.css.map",
+    "static/css/main.c0a341fd.chunk.css.map": "/yaniv/static/css/main.c0a341fd.chunk.css.map",
     "static/js/2.890f2da3.chunk.js.LICENSE.txt": "/yaniv/static/js/2.890f2da3.chunk.js.LICENSE.txt",
     "static/media/cards.css": "/yaniv/static/media/QS.3cc03c1c.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.a1677fb8.js",
     "static/js/2.890f2da3.chunk.js",
-    "static/css/main.1816ba23.chunk.css",
-    "static/js/main.22ad3751.chunk.js"
+    "static/css/main.c0a341fd.chunk.css",
+    "static/js/main.1b1b1a65.chunk.js"
   ]
 }
