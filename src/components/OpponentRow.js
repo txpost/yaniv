@@ -27,15 +27,15 @@ function OpponentRow(props) {
                     <div className=""><IdDisplay id={props.player.id}/></div>
                 }
                 <div className="pl-2"><ScoreDisplay score={props.player.score} /></div>
+                {props.paused &&
+                    <span className="text-red-500 pl-2 font-bold">{props.player.points}</span>
+                }
             </div>
             <div className="flex flex-wrap items-center playingCards faceImages simpleCards">
                 <ul className="hand">
                     {opponentRow}
                 </ul>
-            </div>
-            {props.paused &&
-                <div className="text-red-500 pt-2 px-2 font-bold">{props.player.points}</div>
-            }
+            </div>            
             {/*<div>{handDisplay}</div>*/}
         </div>
     )
