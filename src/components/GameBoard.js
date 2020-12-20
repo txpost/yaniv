@@ -31,7 +31,7 @@ class GameBoard extends React.Component {
 
     startInterval() {
         this.clearInterval();
-        this.interval = setInterval(() => this.handleTimeout(), 1500);
+        this.interval = setInterval(() => this.handleTimeout(), 1000);
     }
 
     clearInterval() {
@@ -287,12 +287,27 @@ class GameBoard extends React.Component {
 
     handleReadyClick() {
 
+        // check for game over
+        let gameOver = false;
+        for (let i = 0; i < this.state.players.length; i++) {
+            const player = this.state.players[i];
+            if (player.score > 200) {
+                gameOver = true;
+                break;
+            }
+        }
+
         // deal cards
         let newPlayers = this.state.players;
         let newDeal = deal(4);
         for (let i = 0; i < newDeal.players.length; i++) {
             newPlayers[i].hand = newDeal.players[i].hand;
             newPlayers[i].points = newDeal.players[i].points;
+            if (gameOver) {
+                newPlayers[i].score = 0;
+            } else if (newPlayers[i].score === 100 || newPlayers[i].score === 200) {
+                newPlayers[i].score = newPlayers[i].score / 2;
+            }
         }
 
         this.setState({
