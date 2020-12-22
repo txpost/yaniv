@@ -28,7 +28,7 @@ function PlayerInput(props) {
 
     return (
         <div className="flex flex-col">
-            <div className="flex items-center justify-center">
+            <div className="">
                 <PlayerRow selectedCards={props.selectedCards} paused={props.paused} player={props.player} onCardClick={(card) => handleCardClick(card)} />
             </div>
             <div className="flex items-center justify-center pt-6">
@@ -43,10 +43,10 @@ function PlayerInput(props) {
                 <span className="text-red-500 font-bold pl-2">{props.player.points}</span>
                 }
                 {getPoints(props.player.hand) <= 5 && !props.paused &&
-                <div onClick={() => handleYanivClick()} className="pl-4"><YanivButton /></div>
+                    <div onClick={() => handleYanivClick()} className="pl-4"><YanivButton /></div>
                 }
                 {props.paused &&
-                <div onClick={() => handleReadyClick()} className="pl-4"><ReadyButton/></div>
+                    <div onClick={() => handleReadyClick()} className="pl-4"><ReadyButton/></div>
                 }
             </div>
             <div className="pt-6 text-red-500">{props.errorMessage}</div>

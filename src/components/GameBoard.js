@@ -2,7 +2,16 @@ import React, {useEffect, useReducer, useState} from 'react'
 import OpponentList from './OpponentList.js'
 import PlayerInput from './PlayerInput.js'
 import PlayArea from './PlayArea.js'
-import {deal, shuffle, getRandomInt, getBestPlay, getPoints, areCardsPlayable, getCard} from '../Utils.js'
+import {
+    deal,
+    shuffle,
+    getRandomInt,
+    getBestPlay,
+    getPoints,
+    areCardsPlayable,
+    getCard,
+    getNextTurn
+} from '../Utils.js'
 import '../css/cards.css';
 import '../cards.css';
 
@@ -17,11 +26,12 @@ function GameBoard() {
     const [selectedCards, setSelectedCards] = useState([]);
     const [paused, setPaused] = useState(false);
     const [, forceUpdate] = useReducer(x => x + 1, 0);
+    const [lastPlayedCards, setLastPlayedCards] = useState([]);
 
     useEffect(() => {
         let interval = null;
         if (!paused && turn !== 0) {
-            interval = setInterval(() => handleTimeout(), 3000);
+            interval = setInterval(() => handleTimeout(), 1500);
         } else {
             clearInterval(interval);
         }
@@ -55,6 +65,7 @@ function GameBoard() {
     }
 
     function handlePlayClick(cards, drawPile) {
+
         if (players[0].turn !== turn) {
             setErrorMessage("not your turn");
             return;
@@ -81,12 +92,34 @@ function GameBoard() {
     }
 
     function handleCardClick(cards, card) {
-        // slap down if clicked card matches discard pile top card
+
         if (discardPile.length > 0) {
             let topCard = discardPile[discardPile.length - 1];
-            if (getCard(topCard).number === getCard(card).number && turn !== players[0].turn) {
+
+            // slap down if clicked card was just picked up card from draw stack and matches discard pile top card
+            if (getCard(topCard).number === getCard(card).number &&
+                turn === getNextTurn(players[0].turn) &&
+                card === players[0].hand[players[0].hand.length - 1] &&
+                players[0].lastDrawPile === 2)
+            {
                 slapDownCard(card, players[0]);
                 return;
+            }
+
+            // slap down (add on) if adding to a straight
+            if (lastPlayedCards.length >= 3 && (topCard + 1) === card && getCard(topCard).number !== 'K')
+            {
+                slapDownCard(card, players[0]);
+                return;
+            }
+
+            // slap down (add on) if completing a set
+            if (lastPlayedCards.length + cards.length === 4) {
+                let combined = lastPlayedCards.concat(cards);
+                if (combined.every((val, i, arr) => val === arr[0])) {
+                    slapDownCard(cards, players[0])
+                    return;
+                }
             }
         }
 
@@ -96,29 +129,66 @@ function GameBoard() {
 
     function slapDownCard(card, player) {
 
-        // add card to the discard pile
-        let newDiscardPile = discardPile;
-        newDiscardPile.push(card);
+        let newDiscardPile;
+        let newPlayers;
+        let newSelectedCards;
+        let newLastPlayedCards;
 
-        // remove cards from the player's hand
-        let playerIndex = players.indexOf(player);
-        let newPlayer = players[playerIndex];
-        newPlayer.hand.splice(newPlayer.hand.indexOf(card), 1);
+        // slap down is a set add-on
+        if (card.length > 1) {
+            let cards = card;
 
-        newPlayer.points = getPoints(newPlayer.hand);
+            // add cards to the discard pile
+            newDiscardPile = discardPile.concat(cards);
 
-        let newPlayers = players;
-        newPlayers[playerIndex] = newPlayer;
+            // remove cards from the player's hand
+            let playerIndex = players.indexOf(player);
+            let newPlayer = players[playerIndex];
+            for (let i = 0; i < cards.length; i++) {
+                newPlayer.hand.splice(newPlayer.hand.indexOf(cards[i]), 1);
+            }
 
-        let newSelectedCards = selectedCards;
-        if (newSelectedCards.includes(card)) {
-            newSelectedCards.splice(newSelectedCards.indexOf(card), 1);
+            // update player points in hand
+            newPlayer.points = getPoints(newPlayer.hand);
+
+            // update overall player status
+            newPlayers = players;
+            newPlayers[playerIndex] = newPlayer;
+
+            // update selected cards
+            newSelectedCards = [];
+
+            // update last played cards pile
+            newLastPlayedCards = lastPlayedCards.concat(cards);
+        } else {
+            // add card to the discard pile
+            newDiscardPile = discardPile;
+            newDiscardPile.push(card);
+
+            // remove cards from the player's hand
+            let playerIndex = players.indexOf(player);
+            let newPlayer = players[playerIndex];
+            newPlayer.hand.splice(newPlayer.hand.indexOf(card), 1);
+
+            newPlayer.points = getPoints(newPlayer.hand);
+
+            newPlayers = players;
+            newPlayers[playerIndex] = newPlayer;
+
+            newSelectedCards = selectedCards;
+            if (newSelectedCards.includes(card)) {
+                newSelectedCards.splice(newSelectedCards.indexOf(card), 1);
+            }
+
+            newLastPlayedCards = lastPlayedCards;
+            newLastPlayedCards.push(card);
         }
 
         setDiscardPile(newDiscardPile);
         setPlayers(newPlayers);
         setErrorMessage('');
         setSelectedCards(newSelectedCards);
+        setLastPlayedCards(newLastPlayedCards);
 
         forceUpdate();
     }
@@ -126,25 +196,21 @@ function GameBoard() {
     function playCards(cards, player) {
         // add cards to the discard pile
         let newCards = cards;
-        if (cards.length > 1) {
-            // let mappedCards = cards.map((a, b) => getPoints([a]) - getPoints([b]));
-            // console.log(mappedCards);
-            let maxValue = Math.max.apply(Math, cards.map((a) => getPoints([a])));
-            for (let i = 0; i < newCards.length; i++) {
-                if (getPoints([newCards[i]]) === maxValue) {
-                    newCards.push(newCards.splice(i, 1)[0]);
-                    break;
-                }
-            }
+        if (newCards.length > 1) {
+
+            let numberMap = {0: 0, A: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, J: 11, Q: 12, K: 13};
+            newCards.sort((a, b) => numberMap[getCard(a).number] - numberMap[getCard(b).number]);
+
             // let convertedCards = getCards(newCards);
-            // console.log(convertedCards);
+            // if (getPoints([convertedCards[0]] > getPoints([convertedCards[convertedCards.length]]))) {
+            //     console.log(convertedCards[0]);
+            //     console.log(convertedCards[convertedCards.length]);
+            //     newCards.reverse();
+            // }
         }
 
         let newDiscardPile = discardPile;
         newDiscardPile = newDiscardPile.concat(newCards);
-        // if (newCards.length > 1) {
-        //     console.log(getCards(newDiscardPile));
-        // }
 
         // remove cards from the player's hand
         let playerIndex = players.indexOf(player);
@@ -161,16 +227,21 @@ function GameBoard() {
         let newPlayers = players;
         newPlayers[playerIndex] = newPlayer;
 
+        // let fakeCards = [22,35,52];
+        // let numberMap = {0: 0, A: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, J: 11, Q: 12, K: 13};
+        // fakeCards.sort((a, b) => numberMap[getCard(a).number] - numberMap[getCard(b).number]);
+
+        setLastPlayedCards(newCards);
         setDiscardPile(newDiscardPile);
         setPlayers(newPlayers);
         setErrorMessage('');
-        setTurn(getNextTurn());
+        setTurn(getNextTurn(turn, players.length));
     }
 
     function drawFromDiscardPile() {
         let newDiscardPile = discardPile;
         const card = newDiscardPile.pop();
-        addCardToPlayerHand(card, players[turn]);
+        addCardToPlayerHand(card, players[turn], 1);
 
         setDiscardPile(newDiscardPile);
     }
@@ -178,16 +249,16 @@ function GameBoard() {
     function drawFromDrawStack() {
         let newDrawStack = drawStack;
         const card = newDrawStack.pop();
-        addCardToPlayerHand(card, players[turn]);
+        addCardToPlayerHand(card, players[turn], 2);
 
         setDrawStack(newDrawStack);
     }
 
-    function addCardToPlayerHand(card, player) {
+    function addCardToPlayerHand(card, player, drawPile) {
         let playerIndex = players.indexOf(player);
         let newPlayer = players[playerIndex];
-
         newPlayer.hand.push(card);
+        newPlayer.lastDrawPile = drawPile;
 
         let newPlayers = players;
         newPlayers[playerIndex] = newPlayer;
@@ -205,7 +276,7 @@ function GameBoard() {
 
         // auto call yaniv for the current player
         if (player.points <= 5) {
-            clearInterval();
+            // clearInterval();
             callYaniv(player);
             return;
         }
@@ -284,34 +355,28 @@ function GameBoard() {
         setPlayers(newPlayers);
         setDiscardPile([]);
         setDrawStack(newDeal.deck);
-        setTurn(getNextTurn());
+        setTurn(getNextTurn(turn, players.length));
         setPaused(false);
         setSelectedCards([]);
     }
 
-    function getNextTurn() {
-        let newTurn = turn;
-        newTurn + 1 >= players.length ? newTurn = 0 : newTurn = newTurn + 1;
-        return newTurn;
-    }
-
     return (
         <div className="flex items-center justify-center flex-col bg-white">
-            <div className="border-b-2 p-8">
+            <div className="border-b-2 py-8">
                 <OpponentList paused={paused} turn={turn} players={players} />
             </div>
-            <div className="border-b-2 p-8">
+            <div className="border-b-2 py-8">
                 <PlayArea
                     discardPile={discardPile}
                     drawStack={drawStack}
                     onDiscardPileClick={() => handleDiscardPileClick()}
                     onDrawStackClick={() => handleDrawStackClick()}
                     paused={paused}
+                    lastPlayedCards={lastPlayedCards}
                 />
             </div>
-            <div className="p-8">
+            <div className="py-8">
                 <PlayerInput
-                    onAutoPlayClick={() => handleAutoPlayClick()}
                     player={players[0]}
                     errorMessage={errorMessage}
                     turn={turn}

@@ -15,7 +15,7 @@ function PlayerRow(props) {
     }
     
     return (
-        <div className="flex flex-wrap items-center justify-center" >
+        <div className="space-x-3 flex items-center justify-center flex-wrap" >
             {playerRow}
         </div>
     )

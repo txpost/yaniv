@@ -4,9 +4,14 @@
     <list default="true" id="5e167294-f45f-4d4b-b6c3-a8d24f71d8de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DiscardPile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiscardPile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DrawStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DrawStack.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GameBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PlayArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayArea.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PlayerInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayerInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PlayingCardLabel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayingCardLabel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PlayerRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayerRow.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +92,8 @@
       <workItem from="1608300590825" duration="12585000" />
       <workItem from="1608562627819" duration="1887000" />
       <workItem from="1608587944509" duration="3302000" />
-      <workItem from="1608592510354" duration="10254000" />
+      <workItem from="1608592510354" duration="27777000" />
+      <workItem from="1608644330499" duration="14215000" />
     </task>
     <task id="LOCAL-00001" summary="Long time no commit, most recent updates are css playing cards and opponent ai">
       <created>1608214860835</created>
@@ -187,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608409925941</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Convert to hooks">
+      <created>1608605081740</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1608605081740</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +240,8 @@
     <MESSAGE value="Introduce slap downs" />
     <MESSAGE value="Fix points" />
     <MESSAGE value="Preload images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Preload images" />
+    <MESSAGE value="Convert to hooks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Convert to hooks" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

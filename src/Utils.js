@@ -1,3 +1,9 @@
+export const getNextTurn = (currentTurn, numberOfPlayers) => {
+    let newTurn = currentTurn;
+    newTurn + 1 >= numberOfPlayers ? newTurn = 0 : newTurn = newTurn + 1;
+    return newTurn;
+}
+
 export const getCard = (cardNumber) => {
     const hearts = Array.from(Array(13).keys());
     const diamonds = Array.from({length: 13}, (_, i) => i + 13);
@@ -79,7 +85,8 @@ export const deal = (numberOfPlayers) => {
             score: 0,
             hand: buildHand(5),
             turn: i,
-            points: 0
+            points: 0,
+            lastDrawPile: 0
         })
     }
     for (let i = 0; i < players.length; i++) {
@@ -102,7 +109,7 @@ export const getRandomInt = (start, count) => {
     return Math.floor(Math.random() * count) + start;
 }
 
-const  numberToValueMap = {0: 0, A: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, J: 10, Q: 10, K: 10};
+const numberToValueMap = {0: 0, A: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, J: 10, Q: 10, K: 10};
 
 export const getPoints = (hand) => {
     let points = 0;

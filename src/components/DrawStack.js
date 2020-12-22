@@ -19,7 +19,7 @@ function DrawStack(props) {
     }
 
     return (
-        <div className="playingCards faceImages simpleCards">
+        <div>
             {label}
         </div>
     )

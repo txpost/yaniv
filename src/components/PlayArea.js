@@ -14,17 +14,18 @@ function PlayArea(props) {
 
     return (
         <div>
-            <div className="flex justify-center align-center items-center">
+            <div className="space-x-3 flex justify-center align-center items-center playingCards faceImages simpleCards">
                 {/*<div className="pr-3">Discard Pile ({props.discardPile.length})</div>*/}
-                <DiscardPile
-                    onDiscardPileClick={handleDiscardPileClick}
-                    discardPile={props.discardPile}
-                    paused={props.paused}
-                />
                 <DrawStack
                     onDrawStackClick={handleDrawStackClick}
                     drawStack={props.drawStack}
                     paused={props.paused}
+                />
+                <DiscardPile
+                    onDiscardPileClick={handleDiscardPileClick}
+                    discardPile={props.discardPile}
+                    paused={props.paused}
+                    lastPlayedCards={props.lastPlayedCards}
                 />
                 {/*<div className="pl-3" >Draw Stack ({props.drawStack.length})</div>*/}
             </div>
