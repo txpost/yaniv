@@ -6,60 +6,52 @@ import IdDisplay from "./IdDisplay";
 import {getPoints} from '../Utils.js'
 import ReadyButton from "./ReadyButton";
 
-class PlayerInput extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleCardClick = this.handleCardClick.bind(this);
-    }
+function PlayerInput(props) {
 
-    handleCardClick(card) {
-        let newSelectedCards = this.props.selectedCards;
+    function handleCardClick(card) {
+        let newSelectedCards = props.selectedCards;
         if (newSelectedCards.includes(card)) {
             newSelectedCards.splice(newSelectedCards.indexOf(card), 1);
         } else {
             newSelectedCards.push(card);
         }
-        this.props.onCardClick(newSelectedCards, card);
+        props.onCardClick(newSelectedCards, card);
     }
 
-    handleYanivClick() {
-        this.props.onYanivClick();
+    function handleYanivClick() {
+        props.onYanivClick();
     }
 
-    handleReadyClick() {
-        this.props.onReadyClick();
+    function handleReadyClick() {
+        props.onReadyClick();
     }
 
-    render() {
-        let points = getPoints(this.props.player.hand);
-
-        return (
-            <div className="flex flex-col">                
-                <div className="flex items-center justify-center">
-                    <PlayerRow selectedCards={this.props.selectedCards} paused={this.props.paused} player={this.props.player} onCardClick={(card) => this.handleCardClick(card)} />
-                </div>
-                <div className="flex items-center justify-center pt-6">                    
-                    {this.props.turn === this.props.player.turn
-                        ?
-                        <div className="bg-yellow-300"><IdDisplay id={this.props.player.id}/></div>
-                        :
-                        <div className=""><IdDisplay id={this.props.player.id}/></div>
-                    }
-                    <span className="pl-2"><ScoreDisplay score={this.props.player.score} /></span>
-                    {this.props.paused &&
-                        <span className="text-red-500 font-bold pl-2">{this.props.player.points}</span>
-                    }
-                    {points <= 5 && !this.props.paused &&
-                        <div onClick={() => this.handleYanivClick()} className="pl-4"><YanivButton /></div>
-                    }
-                    {this.props.paused &&
-                        <div onClick={() => this.handleReadyClick()} className="pl-4"><ReadyButton/></div>
-                    }
-                </div>
-                <div className="pt-6 text-red-500">{this.props.errorMessage}</div>
+    return (
+        <div className="flex flex-col">
+            <div className="flex items-center justify-center">
+                <PlayerRow selectedCards={props.selectedCards} paused={props.paused} player={props.player} onCardClick={(card) => handleCardClick(card)} />
             </div>
-        )
-    }    
+            <div className="flex items-center justify-center pt-6">
+                {props.turn === props.player.turn
+                    ?
+                    <div className="bg-yellow-300"><IdDisplay id={props.player.id}/></div>
+                    :
+                    <div className=""><IdDisplay id={props.player.id}/></div>
+                }
+                <span className="pl-2"><ScoreDisplay score={props.player.score} /></span>
+                {props.paused &&
+                <span className="text-red-500 font-bold pl-2">{props.player.points}</span>
+                }
+                {getPoints(props.player.hand) <= 5 && !props.paused &&
+                <div onClick={() => handleYanivClick()} className="pl-4"><YanivButton /></div>
+                }
+                {props.paused &&
+                <div onClick={() => handleReadyClick()} className="pl-4"><ReadyButton/></div>
+                }
+            </div>
+            <div className="pt-6 text-red-500">{props.errorMessage}</div>
+        </div>
+    )
 }
 
 export default PlayerInput
