@@ -116,8 +116,16 @@ function GameBoard() {
             // slap down (add on) if completing a set
             if (lastPlayedCards.length + cards.length === 4) {
                 let combined = lastPlayedCards.concat(cards);
-                if (combined.every((val, i, arr) => val === arr[0])) {
-                    slapDownCard(cards, players[0])
+                let allSame = true;
+                let firstNumber = getCard(combined[0]).number;
+                for (let i = 1; i < combined.length; i++) {
+                    if (getCard(combined[i]).number !== firstNumber) {
+                        allSame = false;
+                        break;
+                    }
+                }
+                if (allSame) {
+                    slapDownCard(cards, players[0]);
                     return;
                 }
             }

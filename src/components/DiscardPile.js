@@ -24,7 +24,7 @@ function DiscardPile (props) {
         for (let i = 0; i < cards.length; i++) {
             let card = getCard(cards[i]);
             mappedSuit = suitMap[card.suit];
-            className = "discard selectable cursor-pointer card rank-" + card.number + " " + mappedSuit;
+            className = "discard card rank-" + card.number + " " + mappedSuit;
             if (cards[i] === 52) {
                 className += " little";
             } else if (cards[i] === 53) {
@@ -50,11 +50,20 @@ function DiscardPile (props) {
                 default:
                     break;
             }
-            label =
-                <div key={cards[i]} onClick={handleClick} className={className}>
-                    <div className="rank">{card.number}</div>
-                    {suitDiv}
-                </div>
+            if (i === (cards.length - 1)) {
+                className += " selectable cursor-pointer";
+                label =
+                    <div key={cards[i]} onClick={handleClick} className={className}>
+                        <div className="rank">{card.number}</div>
+                        {suitDiv}
+                    </div>
+            } else {
+                label =
+                    <div key={cards[i]} className={className}>
+                        <div className="rank">{card.number}</div>
+                        {suitDiv}
+                    </div>
+            }
             discards.push(label);
         }
     } else {
@@ -64,7 +73,7 @@ function DiscardPile (props) {
     }
 
     return (
-        <div className="-space-x-10">
+        <div className="-space-x-12">
             {discards}
         </div>
     )
