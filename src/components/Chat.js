@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import firebase from "firebase";
 import 'firebase/firestore';
 import 'firebase/auth';
@@ -24,10 +24,23 @@ const auth = firebase.auth();
 function Chat() {
     const [user] = useAuthState(auth);
 
+    useEffect(() => {
+        if (!user) {
+            auth.signInAnonymously().then(function (result) {
+                if (!result.user.displayName) {
+                    result.user.updateProfile({
+                        displayName: 'Anonymous' + Math.floor(Math.random() * 999)
+                    }).then();
+                }
+            });
+        }
+    });
+
     return (
         <div className="bg-gray-200 h-screen text-left relative border-r-2 border-indigo-500">
             <section>
-                {user ? <ChatRoom /> : <ChatSignIn />}
+                <ChatRoom />
+                {/*{user ? <ChatRoom /> : <ChatSignIn />}*/}
             </section>
         </div>
     )
